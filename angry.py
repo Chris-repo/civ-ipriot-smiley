@@ -1,10 +1,9 @@
 import time
 from smiley import Smiley
 
-
-class Sad(Smiley):
-    def __init__(self, **kwargs):
-        super().__init__(complexion=self.BLUE)
+class Angry(Smiley):
+    def __init__(self):
+        super().__init__(complexion=self.RED)
 
         self.draw_mouth()
         self.draw_eyes()
@@ -13,7 +12,7 @@ class Sad(Smiley):
         """
         Draws the mouth feature on a smiley
         """
-        mouth = [49, 54, 42, 43, 44, 45]
+        mouth = [49, 54, 41, 42, 43, 44, 45, 46]
         for pixel in mouth:
             self.pixels[pixel] = self.BLANK
 
@@ -22,7 +21,7 @@ class Sad(Smiley):
         Draws open or closed eyes on a smiley
         :param wide_open: Render eyes wide open or shut
         """
-        eyes = [10, 13, 18, 21]
+        eyes = [9, 14, 18, 21]
         for pixel in eyes:
             if wide_open:
                 eyes = self.BLANK
