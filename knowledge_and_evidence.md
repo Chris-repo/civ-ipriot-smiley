@@ -196,11 +196,13 @@ Show the smiley on the screen.
   
   Use the following table for your answers:
 
-| Class Name | Super or Sub? | Direct parent(s) |
-|------------|---------------|------------------|
-| Smiley     | Super         | -                |
-| Happy      | Sub           | Smiley           |
-| Sad        | Sub           | Smiley           |
+| Class Name  | Super or Sub? | Direct parent(s) |
+|-------------|---------------|------------------|
+| Smiley      | Super         | -                |
+| Happy       | Sub           | Smiley           |
+| Sad         | Sub           | Smiley           |
+| Blinkable   | Super         | -                |
+| ABC         | Super         | -                |
 
 2. Explain the concept of abstraction, giving an example from the project (note "implementing an ABC" is **not** in itself an example of abstraction). (Max 150 words)
 
@@ -219,17 +221,20 @@ Show the smiley on the screen.
 Compare and contrast the classes Happy and Sad.
 
 1. What is the key difference between the two classes?
-   > Happy has multiple inheritance
+   > Happy has multiple inheritance (inherits Smiley and Blinkable).
+   > One of the inherited classes "Blinkable" requires the Happy class to implement a "blink" method due to it being an abstract method.
+   > The Sad class does not inherit Blinkable.
    >
 2. What are the key similarities?
    > They share the same methods (apart from blink) and inherit from the same base class
    >
 3. What difference stands out the most to you and why?
-   > The happy class inherits from both smiley and blinkable indicating multiple inheritance
+   > The happy class inherits from both smiley and blinkable indicating multiple inheritance, whereas the sad class only inherits from Smiley.
+   > The author of the happy class intended for it to have the functionality to "blink" whereas the sad class omits this. 
    >
 4. How does this difference affect the functionality of these classes
-   > Any subclasses of Happy will have a blink functionality
-   >
+   > Any subclasses of Happy will have a blink functionality through its inheritance.
+   > They are functionally the same except for the blink method requirement in happy.
 
 ### Where is the Sense(Hat) in the code?
 
@@ -256,7 +261,9 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 2. For those smileys that blink, does the author expect them to blink in the same way? Explain.
 
-> An abstract method requires you to create a method implementation, subclasses of smileys that blink can override the blink implementation.
+> The author did not expect them to blink in the same way because the implementation of the blink method is abstract,
+> an abstract method requires you to create a method implementation. 
+> Subclasses of smileys that blink can override the blink implementation resulting in different functionality.
 >
 
 3. Referring to the implementation of blink in the Happy and Sad Smiley classes, give a brief explanation of what polymorphism is.
